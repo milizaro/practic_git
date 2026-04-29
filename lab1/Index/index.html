@@ -13,16 +13,44 @@
 
 <main>
     <p>This is a simple HTML page.</p>
-    <button onclick="showMessage()">Click Me</button>
+    <button onclick="showLogin()">Open Login</button>
 </main>
 
 <footer>
     <p>&copy; 2026 My Website</p>
 </footer>
 
+<div id="loginModal" class="modal" onclick="if (event.target === this) hideLogin()">
+    <div class="modal-content">
+        <span class="close" onclick="hideLogin()">&times;</span>
+        <h2>Login</h2>
+        <form id="loginForm" onsubmit="submitLogin(event)">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</div>
+
 <script>
-    function showMessage() {
-        alert("Hello! You clicked the button.");
+    function showLogin() {
+        document.getElementById('loginModal').style.display = 'flex';
+        document.getElementById('username').focus();
+    }
+
+    function hideLogin() {
+        document.getElementById('loginModal').style.display = 'none';
+    }
+
+    function submitLogin(event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        alert(`Logging in as ${username}`);
+        hideLogin();
     }
 </script>
 

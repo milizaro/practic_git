@@ -1,4 +1,43 @@
-commit#1
-commit#2
-commit#3
-commit#4
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
+</head>
+<body>
+
+<header>
+    <h1>Login Page</h1>
+</header>
+
+<main>
+    <div class="modal-content" style="position: static; max-width: 420px; margin: 24px auto;">
+        <h2>Login</h2>
+        <form id="loginForm" onsubmit="submitLogin(event)">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2026 My Website</p>
+</footer>
+
+<script>
+    function submitLogin(event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        alert(`Logging in as ${username}`);
+    }
+</script>
+
+</body>
+</html>
